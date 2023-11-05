@@ -35,6 +35,6 @@ int main()
     vector<int>mer={9,8,7,6,5,4,3,2,1,0};
     printvec(mer);
     selectsort(mer);
-    printvec(mer,"选择排序后的结果");
+    printvec(mer,"选择排序后");
     return 0;
 }
