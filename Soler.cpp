@@ -1,7 +1,7 @@
 #include <graphics.h>
 #include <conio.h>
 #include <cmath>
-
+#define PI 3.141592653
 const double AU = 100.0;  // 天文单位（用于缩小尺度）
 const double G = 6.67430e-11;  // 万有引力常数
 const double SunMass = 1.989e30;  // 太阳质量
@@ -51,7 +51,7 @@ void DrawSolarSystem() {
 
 double CalculateOrbitalPeriod(double semiMajorAxis, double mass) {
     // 根据开普勒第三定律计算轨道周期
-    return 2 * M_PI * sqrt(pow(semiMajorAxis, 3) / (G * SunMass + mass));
+    return 2 * PI * sqrt(pow(semiMajorAxis, 3) / (G * SunMass + mass));
 }
 
 int main() {
@@ -63,7 +63,7 @@ int main() {
         planets[i].semiMajorAxis = (i + 1) * AU * 0.2;  // 进一步减小轨道半长轴
         planets[i].eccentricity = 0.017;
         planets[i].rotationAngle = 0.0;
-        planets[i].angle = i * 2 * M_PI / CalculateOrbitalPeriod(planets[i].semiMajorAxis, planets[i].mass);
+        planets[i].angle = i * 2 * PI / CalculateOrbitalPeriod(planets[i].semiMajorAxis, planets[i].mass);
     }
      for (int i = 0; i < NumPlanets; i++) {
         int left = getmaxx() / 2 - planetOrbitRadius[i];
